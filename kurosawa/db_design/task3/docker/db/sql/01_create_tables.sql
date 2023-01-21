@@ -18,10 +18,17 @@ CREATE TABLE IF NOT EXISTS documents (
     `title` VARCHAR(100) NOT NULL,
     `created_by` BIGINT UNSIGNED NOT NULL,
     `status_id` INT NOT NULL DEFAULT 1,
-    `updated_by` BIGINT UNSIGNED NOT NULL,
     FOREIGN KEY (`created_by`) REFERENCES users (`id`),
-    FOREIGN KEY (`updated_by`) REFERENCES users (`id`),
     FOREIGN KEY (`status_id`) REFERENCES document_statuses (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS document_updaters (
+    `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `document_id` BIGINT UNSIGNED NOT NULL,
+    `updated_by` BIGINT UNSIGNED NOT NULL,
+    `updated_at` DATETIME DEFAULT current_timestamp,
+    FOREIGN KEY (`document_id`) REFERENCES documents (`id`),
+    FOREIGN KEY (`updated_by`) REFERENCES users (`id`)
 );
 
 CREATE TABLE IF NOT EXISTS document_contents (

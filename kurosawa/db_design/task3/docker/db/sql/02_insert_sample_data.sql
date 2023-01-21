@@ -12,24 +12,34 @@ INSERT INTO document_statuses (id, status) VALUES
 (2, '非表示');
 
 -- documents
-INSERT INTO documents (title, created_by, updated_by) VALUES
-('プロジェクトA', 1, 1),
-('設計について', 2, 2),
-('インフラ周り', 3, 3),
-('画面設計', 4, 4),
-('API設計', 5, 5),
-('DB設計', 1, 1),
-('論理設計', 2, 2),
-('物理設計', 3, 3),
-('開発について', 4, 4),
-('開発ルール', 5, 5),
-('フロントエンド', 1, 1),
-('ディレクトリ構成について', 2, 2),
-('コード規約', 3, 3),
-('バックエンド', 4, 4),
-('ディレクトリ構成について', 5, 5),
-('コード規約', 1, 1),
-('プロジェクトB', 2, 2);
+INSERT INTO documents (title, created_by) VALUES
+('プロジェクトA', 1),
+('設計について', 2),
+('インフラ周り', 3),
+('画面設計', 4),
+('API設計', 5),
+('DB設計', 1),
+('論理設計', 2),
+('物理設計', 3),
+('開発について', 4),
+('開発ルール', 5),
+('フロントエンド', 1),
+('ディレクトリ構成について', 2),
+('コード規約', 3),
+('バックエンド', 4),
+('ディレクトリ構成について', 5),
+('コード規約', 1),
+('プロジェクトB', 2);
+
+-- document_updaters
+INSERT INTO document_updaters (document_id, updated_by) VALUES
+(1, 3),
+(8, 1),
+(2, 2),
+(4, 3),
+(5, 3),
+(6, 4),
+(7, 3);
 
 -- document_contents
 INSERT INTO document_contents (document_id, content) VALUES
