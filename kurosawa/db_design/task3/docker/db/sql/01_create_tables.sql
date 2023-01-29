@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS documents (
     `title` VARCHAR(100) NOT NULL,
     `created_by` BIGINT UNSIGNED NOT NULL,
     `status_id` INT NOT NULL DEFAULT 1,
+    `depth` INT NOT NULL,
     FOREIGN KEY (`created_by`) REFERENCES users (`id`),
     FOREIGN KEY (`status_id`) REFERENCES document_statuses (`id`)
 );
